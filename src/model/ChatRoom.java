@@ -21,4 +21,9 @@ public class ChatRoom {
             mb.receiveMessage(sender, message);
         }
     }
+
+    public void sendPrivateMessage(User sender, User recipientName, String message){
+        System.out.println("ChatRomm -> General (Private " + sender.getName() + " -> " + recipientName.getName() + " ): " + message);
+        recipientName.receiveMessage(sender, message);  
+    }
 }

@@ -37,4 +37,9 @@ public class User{
         this.chatRoom = room;
         chatRoom.registerUser(this);
     }
+
+    public void sendPrivate(User recipientName, String message){
+        System.out.println(this.getName() + " Mengirim Pesan Private ke: " + recipientName.getName());
+        chatRoom.sendPrivateMessage(this, recipientName, message);
+    }
 }

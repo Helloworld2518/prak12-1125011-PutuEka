@@ -17,6 +17,6 @@ public class App {
         receiveTest.setChatRoom(roomChat);
 
         roomChat.sendBroadcast(sendTest, "Test BroadCast");
-
+        sendTest.sendPrivate(receiveTest, "rahasia Bosss");
     }
 }
