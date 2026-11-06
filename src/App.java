@@ -1,3 +1,4 @@
+import model.ChatRoom;
 import model.User;
 
 public class App {
@@ -8,7 +9,14 @@ public class App {
         sendTest.sendMessage(receiveTest, "Testing Boss");
         receiveTest.receiveMessage(sendTest, "Testing 2 Boss");
 
-        sendTest.addContact(receiveTest, sendTest);
-        receiveTest.sendGropuMessage("Test");
+        // sendTest.addContact(receiveTest);
+        // receiveTest.sendGropuMessage("Test");
+
+        ChatRoom roomChat = new ChatRoom("Eka Room");
+        sendTest.setChatRoom(roomChat);
+        receiveTest.setChatRoom(roomChat);
+
+        roomChat.sendBroadcast(sendTest, "Test BroadCast");
+
     }
 }

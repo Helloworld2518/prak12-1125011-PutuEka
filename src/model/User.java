@@ -1,9 +1,8 @@
 package model;
-import java.util.*;
 
 public class User{
     private String name;
-    public List<User> contacts = new ArrayList<>();
+    ChatRoom chatRoom;
 
     public User(String name) {
         this.name = name;
@@ -18,19 +17,24 @@ public class User{
     }
 
     public void receiveMessage(User sender, String message){
-        System.out.println("Menerima pesan dari: " + sender.getName() + " isi Pesan: " + message);
+        System.out.println("(" + this.getName() + ") " + "Menerima pesan dari: " + sender.getName() + " isi Pesan: " + message);
     }
 
-    public void addContact(User user, User sender){
-        contacts.add(user);
-        user.contacts.add(sender);
-        System.out.println("Kontak " + user.getName() + " Berhasil ditambah!");
-    }
+    // public void addContact(User user){
+    //     contacts.add(user);
+    //     user.contacts.add(this);
+    //     System.out.println("Kontak " + user.getName() + " Berhasil ditambah!");
+    // }
 
-    public void sendGropuMessage(String message){
-        for (User cts: contacts){
-            sendMessage(cts, message);
-            System.out.println("Mengirim ke kontak " + cts.getName());
-        }
+    // public void sendGropuMessage(String message){
+    //     for (User cts: contacts){
+    //         sendMessage(cts, message);
+    //         System.out.println("Mengirim ke kontak " + cts.getName());
+    //     }
+    // }
+
+    public void setChatRoom(ChatRoom room){
+        this.chatRoom = room;
+        chatRoom.registerUser(this);
     }
 }
