@@ -1,5 +1,11 @@
+import model.User;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        User sendTest = new User("Putu Eka");
+        User receiveTest = new User("Rini");
+
+        sendTest.sendMessage(receiveTest, "Testing Boss");
+        receiveTest.receiveMessage(sendTest, "Testing 2 Boss");
     }
 }
