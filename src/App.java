@@ -7,5 +7,8 @@ public class App {
 
         sendTest.sendMessage(receiveTest, "Testing Boss");
         receiveTest.receiveMessage(sendTest, "Testing 2 Boss");
+
+        sendTest.addContact(receiveTest, sendTest);
+        receiveTest.sendGropuMessage("Test");
     }
 }
