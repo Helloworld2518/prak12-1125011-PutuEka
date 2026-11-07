@@ -18,5 +18,10 @@ public class App {
 
         roomChat.sendBroadcast(sendTest, "Test BroadCast");
         sendTest.sendPrivate(receiveTest, "rahasia Bosss");
+
+        roomChat.addBadWord("jelek");
+        roomChat.sendBroadcast(sendTest, "JELEK");
+
+        
     }
 }
