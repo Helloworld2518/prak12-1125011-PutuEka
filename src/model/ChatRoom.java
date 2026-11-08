@@ -6,6 +6,7 @@ import java.util.List;
 public class ChatRoom {
     private List<String> badWords = new ArrayList<>();
     private String roomName;
+    private User admin;
     public List<User> members = new ArrayList<>();
 
     public ChatRoom(String roomName) {
@@ -13,9 +14,21 @@ public class ChatRoom {
     }
     
     public void registerUser(User user){
-        members.add(user);
+        if (!members.contains(user)){
+            members.add(user);
+            if (admin == null){
+                admin = user;
+                user.setAdmin(true);
+            }
+        }
+        
         System.out.println("Berhasil Menambahkan user: " + user.getName());
     }
+
+    public User getAdmin(){
+        return admin;
+    }
+
 
     public void sendBroadcast(User sender, String message){
 
@@ -46,5 +59,15 @@ public class ChatRoom {
         }
 
         return safeTulisan;
+    }
+
+    public void removeUser(User user, User master){
+        if (master == admin){
+            members.remove(user);
+            System.out.println("User " + user.getName() + " Berhasil dihapus");
+        }
+        else{
+            System.out.println("anda bukan admin");
+        }
     }
 }
