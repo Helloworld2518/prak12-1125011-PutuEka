@@ -38,6 +38,12 @@ public class App {
         Sports.addBadWord("Ronaldo is Goat");
         general.addBadWord("jelek bos");
 
+        general.sendBroadcast(sendTest, "Hari Ini Cerah");
+        general.sendBroadcast(eka, "iya");
+
         general.removeUser(ibu, ayah);
+        general.muteUser(ayah, eka);
+        general.sendBroadcast(eka, "Ngantuk Boss");
+        general.showHistory();
     }
 }
